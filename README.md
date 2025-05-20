@@ -23,7 +23,7 @@ source camenv/bin/activate           # On Windows: camenv\Scripts\activate
 
 # Install camera dependencies
 pip install --upgrade pip
-pip install -r requirements_camera.txt
+pip install -r requirements_mediapipenv.txt
 deactivate mediapipe_env
 ```
 ### 3. Set up the Dash + WebSocket environment (conda)
