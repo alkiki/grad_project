@@ -18,18 +18,18 @@ cd grad_project
 ```
 ### 2. Set up the camera gesture environment (venv)
 ```# Create and activate a virtual environment
-python3 -m venv camenv
+python3 -m venv 
 source camenv/bin/activate           # On Windows: camenv\Scripts\activate
 
 # Install camera dependencies
 pip install --upgrade pip
 pip install -r requirements_camera.txt
-deactivate
+deactivate mediapipe_env
 ```
 ### 3. Set up the Dash + WebSocket environment (conda)
 ```# Create and activate the Conda environment
 conda env create -f environment_camera.yml
-conda activate dashenv
+conda activate camenv
 ```
 ### 4. Run the project (in two terminals)
 #### Terminal 1: WebSocket server and Dash app
