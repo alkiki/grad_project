@@ -1,33 +1,18 @@
-# grad_project
-This project currently runs with 2 different environemtns. 
+# 🎓 grad_project
 
-Clone the repository
+This project uses webcam-based hand gesture recognition to interact with a Dash-based 3D visualization via WebSockets.
 
-`git clone https://github.com/alkiki/grad_project.git
-cd grad_project`
+It runs in **two environments**:
+- 🖐️ `venv` for the camera + gesture model
+- 📊 `conda` for the server + visualization
 
-For the Camera + Gesture Script
-`# Create and activate a virtual environment
-python3 -m venv camenv
-source camenv/bin/activate  # Use camenv\Scripts\activate on Windows
+---
 
-# Install required packages
+## ✅ Quick Setup & Run Instructions
 
-pip install --upgrade pip
-pip install -r requirements_camera.txt`
-For the Server + Dash Visualization:
-`# Create and activate Conda environment
-conda env create -f environment_camera.yml
-conda activate dashenv`
+### 📦 1. Clone the repository
 
-Run the project
-Terminal 1: Dash App & WebSocket Server
-`conda activate dashenv
-# Run the server
-python websocket_server.py
-# In another terminal (still in dashenv)
-python dash-brain-viewer/app.py`
-
-Terminal 2: Camera Script
-`source camenv/bin/activate
-python camera.py`
+```bash
+git clone https://github.com/alkiki/grad_project.git
+cd grad_project
+```
