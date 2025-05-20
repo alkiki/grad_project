@@ -18,7 +18,7 @@ cd grad_project
 ```
 ### 2. Set up the camera gesture environment (venv)
 ```# Create and activate a virtual environment
-python3 -m venv 
+python3 -m venv mediapipe_env
 source camenv/bin/activate           # On Windows: camenv\Scripts\activate
 
 # Install camera dependencies
