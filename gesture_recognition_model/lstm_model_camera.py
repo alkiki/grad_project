@@ -116,7 +116,7 @@ while cap.isOpened():
                         cv2.putText(frame, "zoom_in", (10, 130), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 100, 100), 2)
                         asyncio.run(send_gesture("zoom_in"))
                         last_zoom_time = current_time
-                    elif dist < 0.05:
+                    elif dist < 0.13:
                         print("🤏 Detected zoom_out by pinch")
                         cv2.putText(frame, "zoom_out", (10, 130), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 2)
                         asyncio.run(send_gesture("zoom_out"))
@@ -128,8 +128,8 @@ while cap.isOpened():
                 for name, pattern in {
                     "swipe_left": ["point", "swipe_left"],
                     "swipe_right": ["point", "swipe_right"],
-                    "rotate_cw": ["palm", "thumb_index"],
-                    "rotate_ccw": ["thumb_index", "palm"]
+                    # "rotate_cw": ["palm", "thumb_index"],
+                    # "rotate_ccw": ["thumb_index", "palm"]
                 }.items():
                     if recent == pattern and (time.time() - last_dynamic_time) > DETECTION_COOLDOWN:
                         print(f"🔁 Detected dynamic gesture: {name}")
