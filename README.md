@@ -1,5 +1,7 @@
 # 🎓 grad_project
 
+WORKING ENVIRONMENTS: CCI_UG_thesis/camenv.yml and CCI_UG_thesis/mediapipe_env.yml
+
 This project uses webcam-based hand gesture recognition to interact with a Dash-based 3D visualization via WebSockets.
 
 It runs in **two environments**:
