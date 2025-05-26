@@ -11,20 +11,30 @@ import math
 
 # Orientation Feature Utilities 
 def unit_vector(v):
+    #  Normalize a vector to unit length. Return zero vector if input has zero length.
     norm = np.linalg.norm(v)
     return v / norm if norm != 0 else v
 
 def compute_orientation_features(lm_array):
+    # Compute orientation features from landmark array:
+    # - wrist_to_middle: direction from wrist to middle finger MCP
+    #- index_to_pinky: direction from index MCP to pinky MCP
+    #- palm_normal: normal vector of the palm plane
     lm = np.array(lm_array).reshape(-1, 3)
     WRIST, INDEX_MCP, PINKY_MCP, MIDDLE_MCP = 0, 5, 17, 9
+    #  Vector from wrist to middle MCP (finger base)
     wrist_to_middle = unit_vector(lm[MIDDLE_MCP] - lm[WRIST])
+    # Vector across palm between index MCP and pinky MCP
     index_to_pinky = unit_vector(lm[PINKY_MCP] - lm[INDEX_MCP])
+    # Compute palm normal via cross product of two palm vectors
     v1 = lm[INDEX_MCP] - lm[WRIST]
     v2 = lm[PINKY_MCP] - lm[WRIST]
     palm_normal = unit_vector(np.cross(v1, v2))
+    # Concatenate all three feature vectors
     return np.concatenate([wrist_to_middle, index_to_pinky, palm_normal])
 
 async def send_gesture(gesture):
+    #Asynchronously send a JSON-encoded gesture message to the WebSocket server.
     uri = "ws://localhost:8765"
     try:
         message = json.dumps({"gesture": gesture})
@@ -59,37 +69,39 @@ while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
-
+    # Mirror image for user-friendly display and convert to RGB for MediaPipe
     frame = cv2.flip(frame, 1)
     rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     h, w, _ = frame.shape
+     # Process frame for hand landmarks
     results = hands.process(rgb)
 
     dist = None
-
+    # If at least one hand is detected  
     if results.multi_hand_landmarks:
         for hand_landmarks in results.multi_hand_landmarks:
+            # Draw landmarks and connections on the frame
             mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-
+            # Flatten landmark coordinates into a single list
             landmarks = [coord for lm in hand_landmarks.landmark for coord in (lm.x, lm.y, lm.z)]
             orientation = compute_orientation_features(landmarks)
             enhanced = landmarks + orientation.tolist()
             landmark_buffer.append(enhanced)
 
-            # Distance measurement
+            # # Calculate normalized distance between thumb tip and index tip for pinch zoom
             thumb_tip = hand_landmarks.landmark[4]
             index_tip = hand_landmarks.landmark[8]
             dist = math.sqrt((thumb_tip.x - index_tip.x) ** 2 + (thumb_tip.y - index_tip.y) ** 2)
-
+            # Draw line between thumb and index and display pixel distance
             cv2.line(frame, (int(thumb_tip.x * w), int(thumb_tip.y * h)),
                      (int(index_tip.x * w), int(index_tip.y * h)), (0, 255, 255), 2)
             cv2.putText(frame, f"Distance: {dist:.2f}", (10, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 0), 2)
-
+        # Once we have enough frames, run the LSTM model
         if len(landmark_buffer) == SEQUENCE_LENGTH:
             input_seq = np.array(landmark_buffer).reshape(1, SEQUENCE_LENGTH, 72)
             prediction = model.predict(input_seq, verbose=0)
             predicted_label = class_names[np.argmax(prediction)]
-
+            # Display predicted label on frame
             cv2.putText(frame, predicted_label, (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 3)
 
             # ➕ Add to gesture history **before** checking length

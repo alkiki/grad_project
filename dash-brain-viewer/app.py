@@ -32,17 +32,18 @@ mp_drawing = mp.solutions.drawing_utils
 camera = cv2.VideoCapture(0)
 
 def get_frame():
+    # Capture a frame from the webcam, process it with MediaPipe to find hand landmarks, draw annotations, overlay current gesture label, and return the image as a base64-encoded JPEG.
     ret, frame = camera.read()
     if not ret:
-        return None  # Don't return any image if the webcam fails
-
+        return None  
+    # Flip horizontally for a mirror view and convert color space for MediaPipe
     frame = cv2.flip(frame, 1)
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hands.process(rgb_frame)
 
     gesture_label = latest_gesture.get("gesture")
     thumb_index_distance = None
-
+    # If any hands are detected, draw landmarks and compute the finger distance
     if results.multi_hand_landmarks:
         for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(
@@ -53,21 +54,21 @@ def get_frame():
 
             thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
             index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
-
+            # get the pixel coordinates of the thumb tip and index tip
             h, w, _ = frame.shape
             x1, y1 = int(thumb_tip.x * w), int(thumb_tip.y * h)
             x2, y2 = int(index_tip.x * w), int(index_tip.y * h)
+            # compute Euclidean distance between thumb and index finger tips
             thumb_index_distance = int(np.linalg.norm(np.array([x1, y1]) - np.array([x2, y2])))
-
+             # draw a line between thumb and index fingertips and annotate the distance
             cv2.line(frame, (x1, y1), (x2, y2), (255, 255, 0), 2)
             cv2.putText(frame, f"Distance: {thumb_index_distance}px", (x1, y1 - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
-
+    # overlay the latest recognized gesture on the frame
     if gesture_label:
         cv2.putText(frame, f"Gesture: {gesture_label}", (30, 80),
                 cv2.FONT_HERSHEY_SIMPLEX, 2.5, (0, 255, 255), 5)
-
-
+    
     _, buffer = cv2.imencode('.jpg', frame)
     encoded_image = base64.b64encode(buffer).decode('utf-8')
     return f"data:image/jpeg;base64,{encoded_image}"
@@ -75,7 +76,7 @@ def get_frame():
 # === Dash App Setup ===
 app = dash.Dash(__name__)
 server = app.server
-
+# template for styling the 3D axes in the brain mesh plot
 axis_template = {
     "showbackground": True,
     "backgroundcolor": "#141414",
@@ -83,6 +84,7 @@ axis_template = {
     "zerolinecolor": "rgb(255, 255, 255)",
 }
 
+# layout configuration for the Plotly 3D brain graph
 plot_layout = {
     "title": "",
     "margin": {"t": 0, "b": 0, "l": 0, "r": 0},
@@ -99,12 +101,12 @@ plot_layout = {
         "annotations": [],
     },
 }
-
+# define the layout of the Dash app
 app.layout = html.Div([
     html.Div([
         html.H3("Live Camera Feed with Hand Landmarks", style={'textAlign': 'center', 'color': 'white'}),
 
-        # CENTERED camera feed using flexbox
+        # centered camera feed 
         html.Div([
             html.Img(id='live-camera-feed', style={
                 'width': '600px',
@@ -129,7 +131,7 @@ app.layout = html.Div([
 
     dcc.Interval(id="interval-gesture", interval=1000, n_intervals=0),
 ],
-style={'backgroundColor': '#111', 'padding': '20px'})  # Optional: dark background and padding
+style={'backgroundColor': '#111', 'padding': '20px'}) 
 
 
 @app.callback(
@@ -137,6 +139,7 @@ style={'backgroundColor': '#111', 'padding': '20px'})  # Optional: dark backgrou
     Input('interval-camera', 'n_intervals')
 )
 def update_camera_feed(n):
+    #Dash callback to update the live camera feed image every `interval-camera` tick.
     frame = get_frame()
     return frame if frame else dash.no_update
 
@@ -146,8 +149,8 @@ def update_camera_feed(n):
     [State("brain-graph", "figure")]
 )
 def update_camera_on_gesture(n_intervals, figure):
+    #Dash callback to modify the 3D brain graph camera view based on the latest gesture. Supports zoom in/out and rotate left/right gestures with cooldown logic.
     global last_swipe_time, last_handled_version
-
     gesture = latest_gesture.get("gesture")
     version = latest_gesture.get("version")
     current_time = time.time()
@@ -199,11 +202,14 @@ def update_camera_on_gesture(n_intervals, figure):
     return figure
 
 def start_ws_listener():
+    #start a new asyncio event loop in a separate thread to listen for gesture messages over WebSocket.
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     loop.run_until_complete(gesture_listener())
 
 async def gesture_listener():
+    #Connect to the WebSocket server and continuously receive JSON messages indicating gestures.
+    # Update `latest_gesture` and signal via `gesture_event` when new data arrives.
     uri = "ws://localhost:8765"
     async with websockets.connect(uri) as websocket:
         print("🧪 WebSocket connected!")
@@ -224,5 +230,6 @@ import atexit
 atexit.register(lambda: camera.release())
 
 if __name__ == "__main__":
+    # launch the WebSocket listener in a daemon thread, then start the Dash app
     threading.Thread(target=start_ws_listener, daemon=True).start()
     app.run(debug=True)
