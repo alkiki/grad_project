@@ -3,11 +3,6 @@
 WORKING ENVIRONMENTS: CCI_UG_thesis/camenv.yml and CCI_UG_thesis/mediapipe_env.yml
 
 This project uses webcam-based hand gesture recognition to interact with a Dash-based 3D visualization via WebSockets.
-
-It runs in **two environments**:
-- 🖐️ `venv` for the camera + gesture model
-- 📊 `conda` for the server + visualization
-
 ---
 
 ## Quick Setup & Run Instructions
@@ -45,4 +40,7 @@ http://127.0.0.1:8050
 ```conda activate mediapipe_env       # On Windows: camenv\Scripts\activate
 python gesture_recognition_model/lstm_model_camera.py
 ```
+Instruction on how to interact with project. 
+"Zoom in gsture"
+![Uploading ScreenRecording2025-05-26at4.59.18AM-ezgif.com-video-to-gif-converter.gif…]()
 
