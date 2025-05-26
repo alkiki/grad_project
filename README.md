@@ -40,13 +40,10 @@ http://127.0.0.1:8050
 python gesture_recognition_model/lstm_model_camera.py
 ```
 Instruction on how to interact with project. 
-
-
 "Zoom in gesture"
 
-
-
 ![Gesture Demo](zoom_in.gif)
+
 
 
 
