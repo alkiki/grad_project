@@ -67,7 +67,7 @@ The zoom mode is triggered only after the "fist" gesture. The zoom mode stops af
 
 
 
-Open "palm" gesture
+Open "palm" gesture to deactivate the zoom mode
 
 
 <img width="800" alt="Screenshot 2025-05-26 at 7 28 45 AM" src="https://github.com/user-attachments/assets/525dff27-476f-4619-80da-aa44f2e89e36" />
