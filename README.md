@@ -64,4 +64,4 @@ The zoom mode is triggered only after the "fist" gesture. The zoom mode stops af
 Open "palm" gesture
 
 
-<img width="364" alt="Screenshot 2025-05-26 at 5 14 56 AM" src="https://github.com/user-attachments/assets/5ba655cc-3f25-44a3-b715-16fbf650f2e8" />
+<img width="146" alt="Screenshot 2025-05-26 at 5 14 56 AM" src="https://github.com/user-attachments/assets/5ba655cc-3f25-44a3-b715-16fbf650f2e8" />
