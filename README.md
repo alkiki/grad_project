@@ -1,4 +1,4 @@
-# 🎓 grad_project
+# grad_project
 
 WORKING ENVIRONMENTS: CCI_UG_thesis/camenv.yml and CCI_UG_thesis/mediapipe_env.yml
 
@@ -43,7 +43,7 @@ python gesture_recognition_model/lstm_model_camera.py
 Instruction on how to interact with project. 
 "Zoom in gesture"
 The zoom mode is triggered only after the "fist" gesture. The zoom mode stops after the "palm" gesture
-![image](https://github.com/user-attachments/assets/dcca1f67-f91e-4fed-a28d-9dc78240a996)
+[![image](https://github.com/user-attachments/assets/dcca1f67-f91e-4fed-a28d-9dc78240a996)](https://s1.ezgif.com/tmp/ezgif-19e4c4c0b279a7.gif)
 
 <img width="100" alt="Screenshot 2025-05-26 at 6 44 06 AM" src="https://github.com/user-attachments/assets/217fd1e7-b901-4618-8906-8ccc5a7f5494" />
 <img width="100" alt="Screenshot 2025-05-26 at 6 45 01 AM" src="https://github.com/user-attachments/assets/5f5e5dd2-ef57-4a67-9981-73c63331c31a" />
