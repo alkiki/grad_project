@@ -47,6 +47,8 @@ The zoom mode is triggered only after the "fist" gesture. The zoom mode stops af
 
 
 ![Gesture Demo](zoom_in.gif)
+
+
 ![Gesture Demo](zoom_out.gif)
 
 
