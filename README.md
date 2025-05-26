@@ -45,24 +45,17 @@ Instruction on how to interact with project.
 The zoom mode is triggered only after the "fist" gesture. The zoom mode stops after the "palm" gesture
 
 
-[Gesture Demo](ScreenRecording2025-05-26at7.06.21AM-ezgif.com-video-to-gif-converter.gif)
+![Gesture Demo](zoom_in.gif)
+![Gesture Demo](zoom_out.gif)
+
 
 
 
 "Swiping gesture"
 
 
-<img width="100" alt="Screenshot 2025-05-26 at 6 49 21 AM" src="https://github.com/user-attachments/assets/f39d4636-5957-4680-8cdd-f364c1383887" />
-<img width="100" alt="Screenshot 2025-05-26 at 6 53 49 AM" src="https://github.com/user-attachments/assets/611e1da1-f7e2-42cc-8e0a-2518e1ccbad2" />
+![Gesture Demo](swipe_left.gif)
 
-
-
-
-
-
-
-<img width="100" alt="Screenshot 2025-05-26 at 6 49 21 AM" src="https://github.com/user-attachments/assets/f39d4636-5957-4680-8cdd-f364c1383887" />
-<img width="100" alt="Screenshot 2025-05-26 at 6 57 45 AM" src="https://github.com/user-attachments/assets/0e9b27c1-45af-401e-9356-9f6e2551ba8b" />
 
 
 
