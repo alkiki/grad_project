@@ -1,3 +1,4 @@
+# Created with assistance from ChatGPT (OpenAI)
 import cv2
 import numpy as np
 import mediapipe as mp
@@ -104,7 +105,7 @@ while cap.isOpened():
             # Display predicted label on frame
             cv2.putText(frame, predicted_label, (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 3)
 
-            # ➕ Add to gesture history **before** checking length
+             # === Mode Switching: Palm stops zoom, Fist starts zoom ===
             if not gesture_history or gesture_history[-1] != predicted_label:
                 gesture_history.append(predicted_label)
 

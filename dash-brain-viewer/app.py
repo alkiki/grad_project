@@ -1,3 +1,4 @@
+# Created with assistance from ChatGPT (OpenAI)
 import os
 import json
 import time
