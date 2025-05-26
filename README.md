@@ -49,6 +49,7 @@ The zoom mode is triggered only after the "fist" gesture. The zoom mode stops af
 
 
 "Swiping gesture"
+ScreenRecording2025-05-26at7.06.21AM-ezgif.com-video-to-gif-converter
 
 
 <img width="200" alt="Screenshot 2025-05-26 at 6 49 21 AM" src="https://github.com/user-attachments/assets/f39d4636-5957-4680-8cdd-f364c1383887" />
