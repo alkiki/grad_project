@@ -43,13 +43,12 @@ python gesture_recognition_model/lstm_model_camera.py
 Instruction on how to interact with project. 
 "Zoom in gesture"
 The zoom mode is triggered only after the "fist" gesture. The zoom mode stops after the "palm" gesture
-
+![My feature demo](ScreenRecording2025-05-26at7.06.21AM-ezgif.com-video-to-gif-converter)
 <img width="200" alt="Screenshot 2025-05-26 at 6 44 06 AM" src="https://github.com/user-attachments/assets/217fd1e7-b901-4618-8906-8ccc5a7f5494" />
 <img width="200" alt="Screenshot 2025-05-26 at 6 45 01 AM" src="https://github.com/user-attachments/assets/5f5e5dd2-ef57-4a67-9981-73c63331c31a" />
 
 
 "Swiping gesture"
-ScreenRecording2025-05-26at7.06.21AM-ezgif.com-video-to-gif-converter
 
 
 <img width="200" alt="Screenshot 2025-05-26 at 6 49 21 AM" src="https://github.com/user-attachments/assets/f39d4636-5957-4680-8cdd-f364c1383887" />
