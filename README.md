@@ -31,18 +31,18 @@ conda activate camenv
 ```
 ### 4. Run the project (in two terminals)
 #### Terminal 1: WebSocket server and Dash app
-```conda activate dashenv
-python websocket_server.py
+```conda activate mediapipe_env
+python gesture_recognition_model/websocket_server.py
 ```
 #### Open a second tab (same environment):
-```conda activate dashenv
+```conda activate camenv
 python dash-brain-viewer/app.py
 ```
 Then open your browser to:
 http://127.0.0.1:8050
 
 #### Terminal 2: Run the camera script
-```source camenv/bin/activate           # On Windows: camenv\Scripts\activate
-python camera.py
+```conda activate mediapipe_env       # On Windows: camenv\Scripts\activate
+python gesture_recognition_model/lstm_model_camera.py
 ```
 
