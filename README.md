@@ -43,10 +43,12 @@ Instruction on how to interact with project.
 "Zoom in gesture"
 
 
+![Gesture Demo](zoom_in.gif)
+
+
+
 The zoom mode is triggered only after the "fist" gesture. The zoom mode stops after the "palm" gesture
 
-
-![Gesture Demo](zoom_in.gif)
 
 
 ![Gesture Demo](zoom_out.gif)
