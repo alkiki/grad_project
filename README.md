@@ -42,6 +42,8 @@ python gesture_recognition_model/lstm_model_camera.py
 ```
 Instruction on how to interact with project. 
 "Zoom in gesture"
+
+
 The zoom mode is triggered only after the "fist" gesture. The zoom mode stops after the "palm" gesture
 
 
