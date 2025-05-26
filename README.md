@@ -45,6 +45,7 @@ Instruction on how to interact with project.
 "Zoom in gesture"
 
 
+
 ![Gesture Demo](zoom_in.gif)
 
 
