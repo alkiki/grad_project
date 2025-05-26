@@ -44,20 +44,21 @@ Instruction on how to interact with project.
 "Zoom in gesture"
 The zoom mode is triggered only after the "fist" gesture. The zoom mode stops after the "palm" gesture
 
-<img width="271" alt="Screenshot 2025-05-26 at 6 44 06 AM" src="https://github.com/user-attachments/assets/217fd1e7-b901-4618-8906-8ccc5a7f5494" />
-<img width="271" alt="Screenshot 2025-05-26 at 6 45 01 AM" src="https://github.com/user-attachments/assets/5f5e5dd2-ef57-4a67-9981-73c63331c31a" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 44 06 AM" src="https://github.com/user-attachments/assets/217fd1e7-b901-4618-8906-8ccc5a7f5494" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 45 01 AM" src="https://github.com/user-attachments/assets/5f5e5dd2-ef57-4a67-9981-73c63331c31a" />
 
 
 "Swiping gesture"
-<img width="271" alt="Screenshot 2025-05-26 at 6 49 21 AM" src="https://github.com/user-attachments/assets/f39d4636-5957-4680-8cdd-f364c1383887" />
-<img width="288" alt="Screenshot 2025-05-26 at 6 46 37 AM" src="https://github.com/user-attachments/assets/e82b3ae0-b7aa-4f16-926a-f01297557de0" />
-<img width="326" alt="Screenshot 2025-05-26 at 6 53 49 AM" src="https://github.com/user-attachments/assets/611e1da1-f7e2-42cc-8e0a-2518e1ccbad2" />
-<img width="555" alt="Screenshot 2025-05-26 at 6 56 15 AM" src="https://github.com/user-attachments/assets/1374c39c-1e62-4668-b28b-ed40dd0da3b4" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 49 21 AM" src="https://github.com/user-attachments/assets/f39d4636-5957-4680-8cdd-f364c1383887" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 46 37 AM" src="https://github.com/user-attachments/assets/e82b3ae0-b7aa-4f16-926a-f01297557de0" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 53 49 AM" src="https://github.com/user-attachments/assets/611e1da1-f7e2-42cc-8e0a-2518e1ccbad2" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 56 15 AM" src="https://github.com/user-attachments/assets/1374c39c-1e62-4668-b28b-ed40dd0da3b4" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 57 45 AM" src="https://github.com/user-attachments/assets/0e9b27c1-45af-401e-9356-9f6e2551ba8b" />
 
 
 "Fist" to activate the zoom mode 
-<img width="271" alt="Screenshot 2025-05-26 at 6 43 17 AM" src="https://github.com/user-attachments/assets/dd445ea8-30b6-4bea-9f5d-653672f9ac16" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 43 17 AM" src="https://github.com/user-attachments/assets/dd445ea8-30b6-4bea-9f5d-653672f9ac16" />
 
 
 Open "palm" gesture
-<img width="271" alt="Screenshot 2025-05-26 at 6 43 43 AM" src="https://github.com/user-attachments/assets/df47d849-2e97-46ea-8e43-1f895f101a18" />
+<img width="200" alt="Screenshot 2025-05-26 at 6 43 43 AM" src="https://github.com/user-attachments/assets/df47d849-2e97-46ea-8e43-1f895f101a18" />
